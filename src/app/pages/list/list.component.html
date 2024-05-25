@@ -1,0 +1,27 @@
+<div *ngIf="films" class="row">
+  <div *ngFor="let film of films" class="col-sm-6 col-md-4">
+    <mat-card>
+      <img
+        mat-card-image
+        [src]="imagePath + film.poster_path"
+        alt="Photo of a Shiba Inu"
+        class="img-fluid"
+      />
+      <mat-card-content class="pt-2">
+        <mat-card-title>{{ film.title }}</mat-card-title>
+        <mat-divider class="my-2" />
+        <mat-card-content class="p-0">
+          {{ film.overview }}
+        </mat-card-content>
+        <mat-card-actions>
+          <a
+            mat-button
+            class="nav-link rounded-pill px-4"
+            routerLink="/detalhes/{{ film.id }}"
+            >Detalhes</a
+          >
+        </mat-card-actions>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

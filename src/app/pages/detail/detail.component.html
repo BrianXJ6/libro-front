@@ -1,0 +1,47 @@
+<div>
+  @if (!film) {
+  <div class="d-flex justify-content-center">
+    <mat-spinner />
+  </div>
+  } @else {
+  <div>
+    <h1 class="fw-bold">{{ film.title }}</h1>
+    <div class="row">
+      <div class="col-12 col-sm-4 col-2 mb-4 mb-sm-0">
+        <img [src]="imagePath + film.poster_path" class="img-fluid" />
+      </div>
+      <div class="col">
+        <mat-tab-group dynamicHeight>
+          <mat-tab label="Sinopse">
+            <mat-chip-set class="my-3">
+              <mat-chip *ngFor="let gen of film.genres">
+                {{ gen.name }}
+              </mat-chip>
+            </mat-chip-set>
+            <p class="lead lh-base">{{ film.overview }}</p>
+            <a
+              mat-flat-button
+              class="rounded rounded-pill"
+              color="primary"
+              [href]="film.homepage"
+              target="_blank"
+            >
+              Página oficial
+            </a>
+          </mat-tab>
+          <mat-tab label="Detalhes">
+            <p class="fw-bold">Lançamento: {{ film.release_date }}</p>
+            <p class="mt-3 mb-0">Produtoras:</p>
+            <mat-chip-set>
+              <mat-chip *ngFor="let prod of film.production_companies">
+                <img [src]="imagePath + prod.logo_path" width="25px" />
+                {{ prod.name }}
+              </mat-chip>
+            </mat-chip-set>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
+  </div>
+  }
+</div>
