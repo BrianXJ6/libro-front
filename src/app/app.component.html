@@ -1,5 +1,15 @@
 <main>
-  <h1>Hello World</h1>
-  <hr />
-  <router-outlet />
+  <mat-toolbar color="primary" class="navbar navbar-expand">
+    <a class="navbar-brand text-light" routerLink="/">{{ title }}</a>
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item">
+        <a mat-button class="nav-link rounded-pill px-4" routerLink="listagem">
+          Listagem
+        </a>
+      </li>
+    </ul>
+  </mat-toolbar>
+  <div class="container-fluid my-5">
+    <router-outlet />
+  </div>
 </main>
